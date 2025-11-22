@@ -12,3 +12,6 @@ Responsibilities:
 - Extract and structure email data (subject, from, to, date, body)
 - Export the data to a JSON file with a clear schema
 - Handle rate limits and API errors gracefully
+
+
+Price: $300.00
