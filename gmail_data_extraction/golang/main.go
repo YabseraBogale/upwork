@@ -10,8 +10,8 @@ import (
 
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"google.golang.org/api/gmail/v1"
 	"google.golang.org/api/option"
+	"google.golang.org/api/people/v1"
 )
 
 // Retrieve a token, saves the token, then returns the generated client.
@@ -77,28 +77,32 @@ func main() {
 	}
 
 	// If modifying these scopes, delete your previously saved token.json.
-	config, err := google.ConfigFromJSON(b, gmail.GmailReadonlyScope)
+	config, err := google.ConfigFromJSON(b, people.ContactsReadonlyScope)
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
 	client := getClient(config)
 
-	srv, err := gmail.NewService(ctx, option.WithHTTPClient(client))
+	srv, err := people.NewService(ctx, option.WithHTTPClient(client))
 	if err != nil {
-		log.Fatalf("Unable to retrieve Gmail client: %v", err)
+		log.Fatalf("Unable to create people Client %v", err)
 	}
 
-	user := "me"
-	r, err := srv.Users.Labels.List(user).Do()
+	r, err := srv.People.Connections.List("people/me").PageSize(10).
+		PersonFields("names,emailAddresses").Do()
 	if err != nil {
-		log.Fatalf("Unable to retrieve labels: %v", err)
+		log.Fatalf("Unable to retrieve people. %v", err)
 	}
-	if len(r.Labels) == 0 {
-		fmt.Println("No labels found.")
-		return
-	}
-	fmt.Println("Labels:")
-	for _, l := range r.Labels {
-		fmt.Printf("- %s\n", l.Name)
+	if len(r.Connections) > 0 {
+		fmt.Print("List 10 connection names:\n")
+		for _, c := range r.Connections {
+			names := c.Names
+			if len(names) > 0 {
+				name := names[0].DisplayName
+				fmt.Printf("%s\n", name)
+			}
+		}
+	} else {
+		fmt.Print("No connections found.")
 	}
 }
