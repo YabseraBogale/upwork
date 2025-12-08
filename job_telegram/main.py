@@ -10,14 +10,18 @@ CHANNEL_USERNAME = 't.me/effoyjobs' # e.g., @Telegram
 # Create the client instance and connect
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
 
+term=["computer science", "python" ,"software developer","software engineer" ,"java" ,"dotnet","database"]
+
 @client.on(events.NewMessage(chats=CHANNEL_USERNAME))
 async def new_message_handler(event):
-    print(f"New message received: {event.message.text}")
-    await client.forward_messages(
-        "me",
-        event.id,
-        CHANNEL_USERNAME
-    )
+    
+    for i in term:
+        if i in str(event.message.text).lower().find(i)>0:
+            await client.forward_messages(
+                "me",
+                event.id,
+                CHANNEL_USERNAME
+            )
     # Process the message here
 
 async def main():
