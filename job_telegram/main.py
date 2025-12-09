@@ -5,7 +5,7 @@ import os
 API_ID = os.getenv("API_ID") # Replace with your ID
 API_HASH = os.getenv("API_HASH") # Replace with your Hash
 SESSION_NAME = 'job_telegram'
-CHANNEL_USERNAME = 't.me/effoyjobs' # e.g., @Telegram
+CHANNEL_USERNAME = ['t.me/effoyjobs','t.me/freelance_ethio'] # e.g., @Telegram
 
 # Create the client instance and connect
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
