@@ -1,4 +1,4 @@
-FROM golang:latest AS builder
+FROM docker.io/library/golang:latest AS builder
 
 WORKDIR /app
 
@@ -14,7 +14,6 @@ WORKDIR /app
 
 # Copy built binary from builder
 COPY --from=builder /app/server .
-
 # Expose port
 EXPOSE 8080
 
