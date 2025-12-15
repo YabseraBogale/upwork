@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+
 	ctx := context.Background()
 	client, err := genai.NewClient(ctx, nil)
 	if err != nil {
