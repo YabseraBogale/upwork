@@ -14,7 +14,7 @@ try:
     client = genai.Client()
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=f"can yout give the returns from the route as json in {page}"
+        model="gemini-2.5-flash", contents=f"can you give the returns from the route as json in {page}"
     )
     print(response.text)
 except Exception as e:
