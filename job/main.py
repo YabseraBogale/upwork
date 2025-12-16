@@ -20,7 +20,7 @@ search=["python","java","js","nodejs",
         "fullstack","software","software engineer",
         "software developer","erp developer",
         "mysql","php","larvel","express",
-        "flutter","Mobile Application"]
+        "flutter","mobile Application","computer science"]
 
 @client.on(events.NewMessage(chats=target_channels))
 async def my_event_handler(event):
