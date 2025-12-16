@@ -1,2 +1,4 @@
 env/
 .env
+listener_session.session
+listener_session.session-journal

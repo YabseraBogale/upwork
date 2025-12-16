@@ -1,6 +1,8 @@
 from telethon import TelegramClient, events
 import os
+from dotenv import load_dotenv
 # 1. Your credentials from my.telegram.org
+load_dotenv()
 api_id = os.getenv("telegram_api_id")
 api_hash = os.getenv("telegram_api_hash")
 
