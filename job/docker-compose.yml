@@ -12,4 +12,4 @@ services:
     # This allows you to enter the login code in the terminal during first run
     stdin_open: true
     tty: true
-    restart: always
+    restart: unless-stopped
