@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  telegram-listener:
+    container_name: telegram_job
+    build: .
+    volumes:
+      # This maps the session file to your local folder so you stay logged in
+      - ./sessions:/app/sessions
+    environment:
+      - .env
+    # This allows you to enter the login code in the terminal during first run
+    stdin_open: true
+    tty: true
+    restart: always
