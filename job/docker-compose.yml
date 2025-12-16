@@ -1,4 +1,3 @@
-
 services:
   telegram-listener:
     container_name: telegram_job
