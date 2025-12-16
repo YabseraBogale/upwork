@@ -26,7 +26,7 @@ async def my_event_handler(event):
     try:
         msg_text = event.raw_text
         for i in search:
-            if str(msg_text).find(i)!=-1:
+            if str(msg_text).lower().find(i)!=-1:
                 # 3. Send a message to yourself (Saved Messages)
                 # You can customize this to forward the message or just alert yourself
                 await client.send_message(
