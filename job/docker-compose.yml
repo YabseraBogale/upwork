@@ -1,12 +1,12 @@
 services:
-  telegram-listener:
+  app:
     build: .
     volumes:
       # This maps the session file to your local folder so you stay logged in
       - .:/app
     environment:
-      - telegram_api_id=YOUR_API_ID_HERE
-      - telegram_api_hash=YOUR_API_HASH_HERE
+      - telegram_api_id=telegram_api_id
+      - telegram_api_hash=telegram_api_hash
     # This allows you to enter the login code in the terminal during first run
     stdin_open: true
     tty: true
