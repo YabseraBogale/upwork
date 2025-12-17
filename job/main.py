@@ -12,7 +12,7 @@ client = TelegramClient('listener_session', api_id, api_hash)
 # Note: Use -100 prefix for channel IDs (e.g., -100123456789)
 target_channels = ['@effoyjobs', '@freelance_ethio','@geezjobs_ethiopia',
                    '@online_jobs_ethiopia01','@BeeksisaaHojii','@ethreporterjob',
-                   '@vacancy8','@dklfjsdklf']
+                   '@vacancy8']
 
 search=["python","java","js","nodejs",
         "flask","dotnet",".net",
