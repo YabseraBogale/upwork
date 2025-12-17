@@ -12,7 +12,7 @@ client = TelegramClient('listener_session', api_id, api_hash)
 # Note: Use -100 prefix for channel IDs (e.g., -100123456789)
 target_channels = ['@effoyjobs', '@freelance_ethio','@geezjobs_ethiopia',
                    '@online_jobs_ethiopia01','@BeeksisaaHojii','@ethreporterjob',
-                   '@vacancy8']
+                   '@vacancy8','@dklfjsdklf']
 
 search=["python","java","js","nodejs",
         "flask","dotnet",".net",
@@ -31,12 +31,10 @@ async def my_event_handler(event):
             if str(msg_text).lower().find(i)!=-1:
                 # 3. Send a message to yourself (Saved Messages)
                 # You can customize this to forward the message or just alert yourself
-                await client.send_message(
-                    'me', 
-                    msg_text
-                )
+                await event.message.forward_to('me')
+                break
     except Exception as e:
         print(e)
-print("Listener is active... Press Ctrl+C to stop")
+print("Listener is active...")
 client.start()
 client.run_until_disconnected()
