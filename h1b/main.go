@@ -53,7 +53,7 @@ func main() {
 		fmt.Fprintf(w, "Successfully processed %d users", len(data_list))
 
 	})
-
+	fmt.Println("Starting server")
 	http.ListenAndServe("localhost:8080", nil)
 
 }
