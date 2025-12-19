@@ -1,11 +1,5 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-	"net/http"
-)
-
 type Data struct {
 	CaseNumber                  string `json:"case_number"`
 	JobTitle                    string `json:"job_title"`
@@ -32,28 +26,5 @@ type Data struct {
 }
 
 func main() {
-	http.HandleFunc("/data", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodPost {
-			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-			return
-		}
-
-		var data_list []Data
-		err := json.NewDecoder(r.Body).Decode(&data_list)
-		if err != nil {
-			http.Error(w, "Invalid JSON array", http.StatusBadRequest)
-			return
-		}
-
-		for _, d := range data_list {
-			fmt.Printf("Processing user: %s (%s)\n", d.EmployerName, d.EmployerCity)
-		}
-
-		w.WriteHeader(http.StatusOK)
-		fmt.Fprintf(w, "Successfully processed %d users", len(data_list))
-
-	})
-	fmt.Println("Starting server")
-	http.ListenAndServe("localhost:8080", nil)
 
 }
