@@ -1,0 +1,20 @@
+{
+  "name": "blocker",
+  "version": "1.0.0",
+  "description": "Browser extension to block website",
+  "keywords": [
+    "blocker",
+    "browser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github.com/YabseraBogale/upwork/blocker"
+  },
+  "license": "MIT",
+  "author": "Yabsera Bogale",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
