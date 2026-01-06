@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+  "name": "My First Extension",
+  "version": "1.0",
+  "description": "A simple browser extension",
+  "icons": { "128": "icon128.png" },
+  "action": { "default_popup": "popup.html" },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }]
+}
