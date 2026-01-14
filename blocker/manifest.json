@@ -8,5 +8,8 @@
     "matches": [
                 "https://www.youtube.com/*"],
     "js": ["index.js"]
-  }]
+  }],
+  "permissions":[
+    "storage"
+  ]
 }
