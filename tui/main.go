@@ -18,21 +18,13 @@ type model struct {
 func initalModel() model {
 	w, h := 20, 20
 	g := make([][]bool, h)
-	for i := range g {
-		g[i] = make([]bool, w)
-	}
-	randomNumber := rand.Intn(1 - 0 + 1)
-	for i, _ := range g {
-		for j, _ := range g[i] {
-			if randomNumber == 0 {
-				g[i][j] = true
-			} else {
-				g[i][j] = false
-			}
-
+	for y := range g {
+		g[y] = make([]bool, w)
+		for x := range g[y] {
+			// Give each cell a 20% chance of starting alive
+			g[y][x] = rand.Float64() < 0.2
 		}
 	}
-
 	return model{width: w, height: h, grid: g}
 }
 
