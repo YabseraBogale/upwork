@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"time"
 
@@ -20,7 +21,18 @@ func initalModel() model {
 	for i := range g {
 		g[i] = make([]bool, w)
 	}
-	g[1][2], g[2][3], g[3][1], g[3][2], g[3][3] = true, true, true, true, true
+	randomNumber := rand.Intn(1 - 0 + 1)
+	for i, _ := range g {
+		for j, _ := range g[i] {
+			if randomNumber == 0 {
+				g[i][j] = true
+			} else {
+				g[i][j] = false
+			}
+
+		}
+	}
+
 	return model{width: w, height: h, grid: g}
 }
 
