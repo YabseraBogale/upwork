@@ -16,13 +16,13 @@ type model struct {
 }
 
 func initalModel() model {
-	w, h := 20, 20
+	w, h := 200, 200
 	g := make([][]bool, h)
 	for y := range g {
 		g[y] = make([]bool, w)
 		for x := range g[y] {
 			// Give each cell a 20% chance of starting alive
-			g[y][x] = rand.Float64() < 0.2
+			g[y][x] = rand.Float64() < 0.5
 		}
 	}
 	return model{width: w, height: h, grid: g}
@@ -88,9 +88,9 @@ func (m model) View() string {
 	for _, row := range m.grid {
 		for _, cell := range row {
 			if cell {
-				s += "█" // Live cell
+				s += "0" // Live cell
 			} else {
-				s += "·" // Dead cell
+				s += "1" // Dead cell
 			}
 		}
 		s += "\n"
